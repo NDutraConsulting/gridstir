@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useEffect } from 'react';
 import { Button, View, Text } from 'react-native';
 import { Routes } from '../../_shared/Routes/Routes';
+import { styles } from '../../../styles/style';
 
 export const DashboardHomeRoute: Routes = Routes.DashboardHome;
 
@@ -30,12 +31,12 @@ export function DashboardHome({ navigation }) {
   useEffect(componentDidUnmount, []);
 
   return (
-    <View>
+    <View style={styles.container}>
       <Text>Dashboard</Text>
 
       <Button
-        title="ClickMe"
-        onPress={() => navigation.push(`${Routes.DashboardHome}`)}
+        title="Charge at Home"
+        onPress={() => navigation.push(`${Routes.DashboardCharge}`)}
       />
     </View>
   );
