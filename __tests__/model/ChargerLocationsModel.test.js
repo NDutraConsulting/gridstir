@@ -1,11 +1,14 @@
+import {
+  getCachedData,
+  _setCachedData,
+} from '../../app/models/charger-locations/ChargerLocationsModel.functions';
+
 import { smallData } from '../../mock-server/small-data';
 import { setTestMode } from '../../app/config';
 
-// import model
-
 setTestMode(true);
 
-test('Verifies Model Correctness', () => {
+test('Verifies ChargerLocationsModel Correctness', () => {
   //FIX THIS to assert the fetch call was made to the correct URL
   // https://circleci.com/blog/api-testing-with-jest/
   // https://zellwk.com/blog/endpoint-testing/
@@ -13,8 +16,10 @@ test('Verifies Model Correctness', () => {
   //   console.log('testing');
   //   response = res;
   // });
-  //_setCachedData(smallData);
+
+  _setCachedData(smallData);
+
   // Note: View-Model testing will also use _setCachedData(smallData);
-  //const cachedJSONObj = JSON.stringify(getCachedData());
-  //expect(cachedJSONObj).toMatch(JSON.stringify(smallData));
+  const cachedJSONObj = JSON.stringify(getCachedData());
+  expect(cachedJSONObj).toMatch(JSON.stringify(smallData));
 });
