@@ -1,4 +1,4 @@
-let testMode: boolean = true;
+let testMode: boolean = false;
 
 export const setTestMode = (isTestMode: boolean = false) => {
   testMode = isTestMode;
