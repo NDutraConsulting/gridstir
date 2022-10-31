@@ -9,13 +9,12 @@ const ChargerLocationsFlatList = ({ navigation }: { navigation: any }) => {
   const [chargerLocationsData] = useChargerLocationsModel();
   const [selectedId, setSelectedId] = useState(null);
 
-  console.log(chargerLocationsData);
-
-  const listData = [{ title: 'Charger Stations', data: chargerLocationsData }];
+  let listData: any[] = [];
+  if (chargerLocationsData !== undefined) {
+    listData = [{ title: 'Charger Stations', data: chargerLocationsData }];
+  }
 
   const renderItem = (item: any) => {
-    console.log(item);
-
     const backgroundColor = item.UUID === selectedId ? '#6e3b6e' : '#f9c2ff';
     const color = item.UUID === selectedId ? 'white' : 'black';
 
@@ -45,7 +44,7 @@ const ChargerLocationsFlatList = ({ navigation }: { navigation: any }) => {
         sections={listData}
         renderItem={({ item }) => renderItem(item)}
         renderSectionHeader={({ section: { title } }) => (
-          <Text style={listStyles.header}>{title}</Text>
+          <Text style={listStyles.title}>{title}</Text>
         )}
         keyExtractor={item => item.UUID}
         extraData={selectedId}
