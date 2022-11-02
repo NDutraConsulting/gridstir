@@ -12,7 +12,7 @@ const EVENT_CHANNEL = EventRegistry.LocationUpdated;
 let isWaiting = false;
 
 // Use the subscriber to consume location updates
-export function subscribeToLocationService(handler: () => void) {
+export function subscribeToLocationService(handler: (param: any) => void) {
   _EventBus.subscribe(EVENT_CHANNEL, handler);
 }
 

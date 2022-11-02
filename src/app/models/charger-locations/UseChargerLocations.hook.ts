@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 import {
   refreshData,
   fetchDataWithLocation,
-  getCachedData,
+  getLocalStorageData,
 } from './ChargerLocationsModel.functions';
 
 class componentInstance {
@@ -22,7 +22,7 @@ export function useChargerLocationsModel(): any[] {
   // This subscriptionHandler for location service events.
   //  This allows this component to get updates,
   //      however unsbscribing will require iteration...
-  function subscriptionHandler({ location }) {
+  function subscriptionHandler({ location }: any) {
     console.log(
       `UseChargerLocationHook - subscriptionHandler() - Count: ${componentInstance.count}`
     );
@@ -38,17 +38,25 @@ export function useChargerLocationsModel(): any[] {
         console.warn(code, message);
 
         // Set the locations with the cached data.
-        setChargerLocationsData(getCachedData());
+        setChargerLocationsData(getLocalStorageData());
       });
   }
 
-  const searchForChargerLocations = (lat, long, radiusInKm) => {
+  const searchForChargerLocations = (
+    lat: number,
+    long: number,
+    radiusInKm: number
+  ) => {
     fetchDataWithLocation(lat, long, radiusInKm).then(model => {
       setChargerLocationsData(model);
     });
   };
 
-  const refreshChargerLocations = (lat, long, radiusInKm) => {
+  const refreshChargerLocations = (
+    lat: number,
+    long: number,
+    radiusInKm: number
+  ) => {
     refreshData(lat, long, radiusInKm).then(model => {
       setChargerLocationsData(model);
     });
@@ -62,8 +70,8 @@ export function useChargerLocationsModel(): any[] {
 
     componentInstance.count++;
     // Initialize the location using the cached data.
-    // getCachedData() could use an SQLite db & localization config file.
-    setChargerLocationsData(getCachedData());
+    // getLocalStorageData() could use an SQLite db & localization config file.
+    setChargerLocationsData(getLocalStorageData());
 
     subscribeToLocationService(subscriptionHandler);
     getLocation();

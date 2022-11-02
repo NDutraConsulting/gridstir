@@ -44,6 +44,15 @@ function makeGetUrl() {
 }
 
 /**
+ * Getter is exported for use in offline loading
+ * @returns object
+ */
+export function getLocalStorageData() {
+  // Use this function to get data out of the persistance layer.
+  return ChargerLocationsCache.data;
+}
+
+/**
  * Getter is exported for PreProd live-backend integration testing with SuperTest
  * @returns object
  */
