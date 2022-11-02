@@ -2,18 +2,17 @@ import GetLocation from 'react-native-get-location';
 import _EventBus from '../../events/_event-bus/_EventBus';
 import { EventRegistry } from '../../events/event-registry/EventRegistry';
 
+const EVENT_CHANNEL = EventRegistry.LocationUpdated;
+
 // This is a private instance level variable because it is not exported
 //  meaning that when imported into a new class it is reset
 // This is be better than using a static semaphore
 //   because it prevents deadlock when system failures occur.
 // Which makes this approach more recoverable by nature.
-
-const EVENT_CHANNEL = EventRegistry.LocationUpdated;
-
 let isWaiting = false;
 
 // Use the subscriber to consume location updates
-export function subscribeToLocationService(handler) {
+export function subscribeToLocationService(handler: () => void) {
   _EventBus.subscribe(EVENT_CHANNEL, handler);
 }
 
@@ -58,4 +57,18 @@ export function getLocation() {
       console.warn(code, message);
       isWaiting = false;
     });
+}
+
+let pollingIsLocked: boolean = false;
+
+export function pollLocation() {
+  try {
+    if (!pollingIsLocked) {
+      setInterval(() => {
+        console.log('Polling can be bad for performance be careful.');
+        pollingIsLocked = true;
+        getLocation();
+      }, 10000);
+    }
+  } catch (err) {}
 }

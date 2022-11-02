@@ -1,7 +1,7 @@
 // In App.js in a new project
 import '../local-storage/LocalStore';
 
-import * as React from 'react';
+import React, { useEffect } from 'react';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { DashboardStack } from './dashboard-flow/Dashboard.stack';
@@ -11,28 +11,20 @@ import { ProfileStack } from './profile-flow/Profile.stack';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import { getLocation } from '../utils/LocationService/LocationService.functional';
-
+import { pollLocation } from '../utils/LocationService/LocationService.functions';
 import { Routes } from './_shared/Routes/Routes';
-
-console.log('AppROuter Mounted');
-
-// This pollLocation function should be put into the LocationService 
-// and called in AppRouter useEffect(componentDidMount(),[]) 
-// & in an ideal world this should also be stopped on unmount.
-function pollLocation() {
-  setInterval(() => {
-    console.log('Polling can be bad for performance be careful.');
-    getLocation();
-  }, 10000);
-}
-try {
-  pollLocation();
-} catch (error) {}
 
 const Tab = createBottomTabNavigator();
 
 function AppRouter() {
+  // Define componentDidMount
+  function componentDidMount() {
+    // Location polling posts an event for over components to consume.
+    pollLocation();
+  }
+
+  useEffect(componentDidMount, []);
+
   return (
     <NavigationContainer>
       <Tab.Navigator

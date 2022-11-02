@@ -2,7 +2,7 @@
 import {
   getLocation,
   subscribeToLocationService,
-} from '../../utils/LocationService/LocationService.functional';
+} from '../../utils/LocationService/LocationService.functions';
 
 import { useEffect, useState } from 'react';
 
