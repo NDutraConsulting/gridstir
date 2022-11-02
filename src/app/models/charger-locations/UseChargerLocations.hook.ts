@@ -58,7 +58,7 @@ export function useChargerLocationsModel(): any[] {
     // I am testing to see if the component that
     //  called this hook is going to get called again.
     // I am not sure if the hook will work across multiple files...
-    // NOTE: THIS implementation using an EVENTBUS is PURELY EXPERIMENTAL.
+    // NOTE: THIS implementation using an EVENTBUS is still EXPERIMENTAL.
 
     componentInstance.count++;
     // Initialize the location using the cached data.
