@@ -18,7 +18,6 @@ export function subscribeToLocationService(handler: () => void) {
 
 // Use the getLocation to request an update right now.
 export function getLocation() {
-  console.log(isWaiting);
   if (isWaiting) {
     return;
   }
@@ -29,7 +28,7 @@ export function getLocation() {
     timeout: 15000,
   })
     .then(location => {
-      console.log(location);
+      // console.log(location);
       isWaiting = false;
 
       // Publish the location event for other services to consume.
@@ -64,6 +63,7 @@ let pollingIsLocked: boolean = false;
 export function pollLocation() {
   try {
     if (!pollingIsLocked) {
+      console.log('Start Polling');
       setInterval(() => {
         console.log('Polling can be bad for performance be careful.');
         pollingIsLocked = true;
