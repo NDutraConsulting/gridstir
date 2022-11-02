@@ -96,9 +96,6 @@ Note: this only works on Mac if xcode is installed.
 #### `cd ios && pod install`
 
 #### `cd ../`
-#### `npm start`
-### Open a new Terminal window
-#### `npm run isim`
 #### `npm run ios`
 ---
 
@@ -106,9 +103,6 @@ Note: this only works on Mac if xcode is installed.
 Note: this only works if you have installed Android studio.\
 [Learn more about launching AVD from terminal.](https://developer.android.com/studio/run/emulator-commandline)
 #### `npm install`
-#### `npm start`
-### Open a new Terminal window
-#### `npm run avd-31`
 #### `npm run android`
 ---
 
