@@ -82,7 +82,7 @@
  can verify correctness of the solution.
     * npm run mock-server
 
-* [x] Developer can develop feature and unit tests with\ 
+* [x] Developer can develop feature and unit tests with\
 the Mock Server so that team based refactoring & CI/CD\
 does not break existing functionality.
     * npm run test
