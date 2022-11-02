@@ -17,7 +17,7 @@ import { Routes } from './_shared/Routes/Routes';
 
 console.log('AppROuter Mounted');
 
-// This pollLocation function should be put into the service 
+// This pollLocation function should be put into the LocationService 
 // and called in AppRouter useEffect(componentDidMount(),[]) 
 // & in an ideal world this should also be stopped on unmount.
 function pollLocation() {
