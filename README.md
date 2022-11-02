@@ -41,6 +41,7 @@
 
 ## Profile flow:
 * [ ] garage (For users with 2 electric vehicles)
+* [ ] stats & downloads
         
 ---
 
