@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { EventRegistry } from '../../events/event-registry/EventRegistry';
 import _EventBus from '../../events/_event-bus/_EventBus';
 
-import { fetchData } from './HomeChargerModel.function';
+import { fetchData } from './HomeChargerModel.functions';
 
 export function useHomeChargerModel() {
   const [garageData, setGarageData] = useState({});
