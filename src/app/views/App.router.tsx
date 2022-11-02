@@ -17,6 +17,9 @@ import { Routes } from './_shared/Routes/Routes';
 
 console.log('AppROuter Mounted');
 
+// This pollLocation function should be put into the service 
+// and called in AppRouter useEffect(componentDidMount(),[]) 
+// & in an ideal world this should also be stopped on unmount.
 function pollLocation() {
   setInterval(() => {
     console.log('Polling can be bad for performance be careful.');
