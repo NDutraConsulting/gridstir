@@ -7,9 +7,9 @@ import {
   saveGarage,
 } from './garage.local-storage';
 
-// This static class reduces memory consumption accross all hook calls to
-// useChargerLocationsModel() export is needed for unit testing
-export class GarageCache {
+// This static class reduces memory consumption
+// This of this as an in memory cache for the persistence layer (Like Redis)
+class GarageCache {
   static data: {};
 }
 

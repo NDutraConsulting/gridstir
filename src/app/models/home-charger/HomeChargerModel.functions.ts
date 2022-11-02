@@ -7,9 +7,9 @@ import {
 } from './home-charger.local-storage';
 import { HomeCharger } from './HomeChargerType';
 
-// This static class reduces memory consumption accross all hook calls to
-// useChargerLocationsModel() export is needed for unit testing
-export class HomeChargerCache {
+// This static class reduces memory consumption
+// This of this as an in memory cache for the persistence layer (Like Redis)
+class HomeChargerCache {
   static data: {};
 }
 
