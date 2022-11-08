@@ -8,8 +8,8 @@
 
 ### The following **required** functionality is completed:
 ## Scalable Business functionality
-* [ ] As a white-label business,
-    * [ ] I want to be able to easily localize the application to any region
+* As a white-label business,
+    * [x] I want to be able to easily localize the application to any region
     * [ ] I want to be able to quickly rebrand the application names, colors, and messaging to meet business customer requirements.
         * So that I can easliy fork the project for our business customers.
     * [ ] I want to be able to automatically distribute updates to all white label customers.
