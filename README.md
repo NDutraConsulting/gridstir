@@ -15,7 +15,7 @@
     * [ ] I want to be able to automatically distribute updates to all white label customers.
         * So that the AppStore and the GooglePlay platform requirements\
         can be kept up to date without rebuilding every business customer application.
-            * Solution: **Possible Trade Secret** Private Gridstir Framework package that has brand styling sitting on top of it for each business customer.
+            * Solution: Private Gridstir Framework package that has brand styling sitting on top of it for each business customer.
 
 ## Navigation 
 * [x] User can navigate to work flows as follows:
