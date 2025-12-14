@@ -1,9 +1,6 @@
-// Note: This does NOT validate the get response
-//       coming from the ChargerLocationsModel fetch call.
-
-// This is just a type reference chart -->
-//              these interfaces may slow down dev time due to the low value
-//              --And extra overhead in an agile environment.
+// Note: Types and interfaces are not validated at runtime. 
+// This does NOT validate the get response properties during end to end testing
+// Object properties coming from the ChargerLocationsModel fetch call still need validation.
 export type HomeCharger = {
   IsRecentlyVerified: boolean;
   DateLastVerified: string;
